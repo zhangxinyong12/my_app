@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CatController } from './cat.controller';
 import { CatService } from './cat.service';
-import { CatEntity } from './cat.entity';
+import { Cat } from '../entity/cat/cat.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([CatEntity])],
+  imports: [TypeOrmModule.forFeature([Cat])],
   controllers: [CatController],
-  providers: [CatService]
+  providers: [CatService],
 })
 export class CatModule { }

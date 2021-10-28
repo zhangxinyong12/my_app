@@ -6,4 +6,5 @@ export declare class CatController {
         code: number;
         msg: string;
     }>;
+    find(): Promise<import("../entity/cat/cat.entity").Cat[]>;
 }

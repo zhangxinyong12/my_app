@@ -11,14 +11,14 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const cat_controller_1 = require("./cat.controller");
 const cat_service_1 = require("./cat.service");
-const cat_entity_1 = require("./cat.entity");
+const cat_entity_1 = require("../entity/cat/cat.entity");
 let CatModule = class CatModule {
 };
 CatModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([cat_entity_1.CatEntity])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([cat_entity_1.Cat])],
         controllers: [cat_controller_1.CatController],
-        providers: [cat_service_1.CatService]
+        providers: [cat_service_1.CatService],
     })
 ], CatModule);
 exports.CatModule = CatModule;

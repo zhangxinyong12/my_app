@@ -16,7 +16,7 @@ exports.CatService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
-const cat_entity_1 = require("./cat.entity");
+const cat_entity_1 = require("../entity/cat/cat.entity");
 let CatService = class CatService {
     constructor(catRepository) {
         this.catRepository = catRepository;
@@ -30,7 +30,7 @@ let CatService = class CatService {
 };
 CatService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_1.InjectRepository)(cat_entity_1.CatEntity)),
+    __param(0, (0, typeorm_1.InjectRepository)(cat_entity_1.Cat)),
     __metadata("design:paramtypes", [typeorm_2.Repository])
 ], CatService);
 exports.CatService = CatService;

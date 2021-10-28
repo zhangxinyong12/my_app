@@ -1,9 +1,9 @@
 import { Repository } from 'typeorm';
-import { CatEntity } from './cat.entity';
+import { Cat } from '../entity/cat/cat.entity';
 import { CreateCatDto } from './create-cat-dto';
 export declare class CatService {
     private readonly catRepository;
-    constructor(catRepository: Repository<CatEntity>);
-    create(createCatDto: CreateCatDto): Promise<CatEntity>;
-    findAll(): Promise<CatEntity[]>;
+    constructor(catRepository: Repository<Cat>);
+    create(createCatDto: CreateCatDto): Promise<Cat>;
+    findAll(): Promise<Cat[]>;
 }

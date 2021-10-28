@@ -18,21 +18,30 @@ let CatController = class CatController {
     }
     async add() {
         await this.catService.create({
-            name: "cat1",
-            age: 20
+            name: 'cat',
+            age: 20,
         });
         return {
             code: 200,
-            msg: "成功"
+            msg: '成功',
         };
+    }
+    async find() {
+        return this.catService.findAll();
     }
 };
 __decorate([
-    (0, common_1.Get)("add"),
+    (0, common_1.Get)('add'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], CatController.prototype, "add", null);
+__decorate([
+    (0, common_1.Get)('find'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], CatController.prototype, "find", null);
 CatController = __decorate([
     (0, common_1.Controller)('cat'),
     __metadata("design:paramtypes", [cat_service_1.CatService])
