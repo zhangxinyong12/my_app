@@ -1,0 +1,20 @@
+{
+    "type": "mysql",
+    "host": "rm-wz9i6arsb4631oj1e2o.mysql.rds.aliyuncs.com",
+    "port": 3306,
+    "username": "zhang",
+    "password": "WOziji123456",
+    "database": "app_flutter",
+    "entities": [
+        "src/**/*.entity.ts"
+    ],
+    "migrations": [
+        "migration/*.ts"
+    ],
+    "timezone": "UTC",
+    "charset": "utf8mb4",
+    "multipleStatements": true,
+    "dropSchema": false,
+    "synchronize": true,
+    "logging": true
+}
