@@ -4,5 +4,8 @@
     "vetur.format.defaultFormatter.ts": "vscode-typescript",
     "editor.defaultFormatter": "vscode.typescript-language-features",
     "vetur.format.defaultFormatter.js": "vscode-typescript",
-    "eslint.format.enable": true
+    "eslint.format.enable": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
 }
