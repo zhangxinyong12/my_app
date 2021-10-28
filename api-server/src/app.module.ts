@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserModule } from './user/user/user.module';
+import { UserModule } from './user/user.module';
 // 引入数据库的及配置文件
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { CatModule } from './cat/cat.module';
-import { GoodsModule } from './modules/goods/goods.module';
 
 const ormconfig: TypeOrmModuleOptions = {
   type: 'mysql',
@@ -28,7 +27,6 @@ const ormconfig: TypeOrmModuleOptions = {
     TypeOrmModule.forRoot({ ...ormconfig }),
     UserModule,
     CatModule,
-    GoodsModule, // 数据库的
   ],
   controllers: [AppController],
   providers: [AppService],

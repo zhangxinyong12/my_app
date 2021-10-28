@@ -27,6 +27,17 @@ let CatService = class CatService {
     findAll() {
         return this.catRepository.find();
     }
+    update() {
+        return this.catRepository.update({ name: "cat" }, { name: "cat2", age: 30 });
+    }
+    async remove() {
+        const data = await this.catRepository.findOne({ name: 'cat2' });
+        console.log(data);
+        if (data) {
+            return this.catRepository.delete(data);
+        }
+        return [];
+    }
 };
 CatService = __decorate([
     (0, common_1.Injectable)(),

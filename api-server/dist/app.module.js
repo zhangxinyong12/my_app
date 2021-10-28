@@ -10,10 +10,9 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const user_module_1 = require("./user/user/user.module");
+const user_module_1 = require("./user/user.module");
 const typeorm_1 = require("@nestjs/typeorm");
 const cat_module_1 = require("./cat/cat.module");
-const goods_module_1 = require("./modules/goods/goods.module");
 const ormconfig = {
     type: 'mysql',
     host: 'rm-wz9i6arsb4631oj1e2o.mysql.rds.aliyuncs.com',
@@ -37,7 +36,6 @@ AppModule = __decorate([
             typeorm_1.TypeOrmModule.forRoot(Object.assign({}, ormconfig)),
             user_module_1.UserModule,
             cat_module_1.CatModule,
-            goods_module_1.GoodsModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

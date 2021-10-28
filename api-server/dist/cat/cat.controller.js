@@ -29,6 +29,12 @@ let CatController = class CatController {
     async find() {
         return this.catService.findAll();
     }
+    update() {
+        return this.catService.update();
+    }
+    remove() {
+        return this.catService.remove();
+    }
 };
 __decorate([
     (0, common_1.Get)('add'),
@@ -42,6 +48,18 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], CatController.prototype, "find", null);
+__decorate([
+    (0, common_1.Get)("update"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], CatController.prototype, "update", null);
+__decorate([
+    (0, common_1.Post)("remove"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], CatController.prototype, "remove", null);
 CatController = __decorate([
     (0, common_1.Controller)('cat'),
     __metadata("design:paramtypes", [cat_service_1.CatService])

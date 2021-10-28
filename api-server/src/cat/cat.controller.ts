@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 import { CatService } from './cat.service';
 
 @Controller('cat')
@@ -17,8 +17,19 @@ export class CatController {
             msg: '成功',
         };
     }
+
     @Get('find')
     async find() {
         return this.catService.findAll();
+    }
+
+    @Get("update")
+    update() {
+        return this.catService.update();
+    }
+
+    @Post("remove")
+    remove() {
+        return this.catService.remove();
     }
 }

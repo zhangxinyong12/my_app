@@ -6,4 +6,6 @@ export declare class CatService {
     constructor(catRepository: Repository<Cat>);
     create(createCatDto: CreateCatDto): Promise<Cat>;
     findAll(): Promise<Cat[]>;
+    update(): Promise<import("typeorm").UpdateResult>;
+    remove(): Promise<any[] | import("typeorm").DeleteResult>;
 }
