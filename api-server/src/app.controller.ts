@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query, Headers } from '@nestjs/common';
+import { Controller, Get, Param, Query, Headers, Response } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller("app")
@@ -9,8 +9,12 @@ export class AppController {
   // 参考 https://blog.csdn.net/lxy869718069/article/details/103421208
   // ?后面参数
   @Get("api")
-  testApi(@Query() query, @Headers() hader): string {
-    return JSON.stringify({ query, hader });
+  testApi(@Query() query, @Headers() hader, @Response() response) {
+    return response.json({
+      code: 403,
+      success: false,
+      message: "需要登录",
+    });
   }
 
   // 路径上参数

@@ -8,7 +8,7 @@ class TestRequest extends BaseRequest {
 
   @override
   bool neddLogin() {
-    return false;
+    return true;
   }
 
   @override

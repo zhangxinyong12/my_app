@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
 
   void init() async {
     await HiCache.preInit();
-    n = HiCache.getInstance().get("n");
+    n = HiCache.getInstance().get("n") ?? 0;
     setState(() {
       n = n;
     });
@@ -53,8 +53,9 @@ class _MyAppState extends State<MyApp> {
                     n++;
                     HiCache.getInstance().setInt("n", n);
                   });
-                  getData();
+                  // getData();
                   // testCach();
+                  testDio();
                 },
               )
             ],
@@ -85,5 +86,19 @@ class _MyAppState extends State<MyApp> {
     HiCache.getInstance().setString("aa", "aaaaaaaaa");
     var value = HiCache.getInstance().get("aa");
     print("aa:$value");
+  }
+
+  void testDio() async {
+    var result;
+    try {
+      result = await HiNet.getInstance().fire(TestRequest());
+    } on NeedAuth catch (e) {
+      print("NeedAuth:${e}");
+    } on NeedLogin catch (e) {
+      print("NeedLogin:${e}");
+    } on HiNetError catch (e) {
+      print("HiNetError 其他错误:${e}");
+    }
+    print(result);
   }
 }

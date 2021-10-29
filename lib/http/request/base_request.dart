@@ -1,3 +1,5 @@
+import 'package:flutter_application_1/http/dao/login_dao.dart';
+
 enum HttpMethod {
   GET,
   POST,
@@ -29,6 +31,10 @@ abstract class BaseRequest {
       uri = Uri.https(authority(), pathStr, params);
     } else {
       uri = Uri.http(authority(), pathStr, params);
+    }
+    if (neddLogin()) {
+      var uuid = LoginDao.getBoardingPass();
+      addHeader("uuid", uuid);
     }
     return uri.toString();
   }

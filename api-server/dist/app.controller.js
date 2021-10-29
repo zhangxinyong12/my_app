@@ -19,8 +19,12 @@ let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
-    testApi(query, hader) {
-        return JSON.stringify({ query, hader });
+    testApi(query, hader, response) {
+        return response.json({
+            code: 403,
+            success: false,
+            message: "需要登录",
+        });
     }
     getHello(param) {
         return param;
@@ -30,9 +34,10 @@ __decorate([
     (0, common_1.Get)("api"),
     __param(0, (0, common_1.Query)()),
     __param(1, (0, common_1.Headers)()),
+    __param(2, (0, common_1.Response)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", void 0)
 ], AppController.prototype, "testApi", null);
 __decorate([
     (0, common_1.Get)(":id"),
