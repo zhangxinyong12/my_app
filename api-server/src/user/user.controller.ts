@@ -28,7 +28,7 @@ export class UserController {
         const data = await this.uerService.login(name, pwd);
 
         if (data) {
-            return res.json({ code: 200, success: true, message: "登录成功" });
+            return res.json({ code: 200, success: true, message: "登录成功", data: { id: data.id, name: data.name, uuid: data.uuid } });
         } else {
             return res.json({ code: 200, success: false, message: "用户名或者密码错误" });
         }

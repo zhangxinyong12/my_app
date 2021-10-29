@@ -32,7 +32,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       n = n;
     });
-   
   }
 
   @override
@@ -55,7 +54,7 @@ class _MyAppState extends State<MyApp> {
                     HiCache.getInstance().setInt("n", n);
                   });
                   getData();
-                 // testCach();
+                  // testCach();
                 },
               )
             ],
@@ -66,9 +65,9 @@ class _MyAppState extends State<MyApp> {
   }
 
   void getData() async {
- // 测试接口
+    // 测试接口
 
-    var result ;
+    var result;
 
     try {
       result = await LoginDao.login("zhangsan002", "zhang");

@@ -13,7 +13,7 @@ export class UserService {
     async login(name, pwd) {
         const data = await this.userRepository.findOne({ name, pwd });
         if (data) {
-            return true;
+            return data;
         } else {
             return false;
         }
