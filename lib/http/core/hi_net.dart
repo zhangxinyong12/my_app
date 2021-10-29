@@ -32,9 +32,10 @@ class HiNet {
     var result = response!.data;
     printLog(result);
     var status = response.statusCode;
-    switch (status) {
-      case 200:
+    if(status>=200&&status<400){
         return result;
+    }
+    switch (status) {
       case 401:
         throw NeedLogin();
       case 403:

@@ -10,7 +10,7 @@ abstract class BaseRequest {
   // "http://192.168.48.103:3000/"; // 不能写localhost，会报错
 
   String authority() {
-    return "192.168.48.103:3000";
+    return "192.168.48.201:3000";
   }
 
   HttpMethod httpMethod();
@@ -30,7 +30,6 @@ abstract class BaseRequest {
     } else {
       uri = Uri.http(authority(), pathStr, params);
     }
-    print("uri:${uri.toString()}");
     return uri.toString();
   }
 

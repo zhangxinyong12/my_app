@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/db/hi_cache.dart';
 import 'package:flutter_application_1/http/core/hi_error.dart';
 import 'package:flutter_application_1/http/core/hi_net.dart';
+import 'package:flutter_application_1/http/dao/login_dao.dart';
 import 'package:flutter_application_1/http/request/test_request.dart';
 
 void main() {
@@ -31,6 +32,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       n = n;
     });
+   
   }
 
   @override
@@ -53,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                     HiCache.getInstance().setInt("n", n);
                   });
                   getData();
-                  testCach();
+                 // testCach();
                 },
               )
             ],
@@ -64,11 +66,12 @@ class _MyAppState extends State<MyApp> {
   }
 
   void getData() async {
-    TestRequest request = TestRequest();
-    request.add("aa", "aaaaa").add("bb", "bbbbbb");
-    var result;
+ // 测试接口
+
+    var result ;
+
     try {
-      result = await HiNet.getInstance().fire(request);
+      result = await LoginDao.login("zhangsan002", "zhang");
     } on NeedAuth catch (e) {
       print("NeedAuth:${e}");
     } on NeedLogin catch (e) {

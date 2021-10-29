@@ -1,17 +1,17 @@
-import { Body, Controller, Param, Post, Response, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Header, Param, Post, Response, UploadedFile, UseInterceptors, Headers } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { UserService } from './user.service';
 
-@Controller('app/user')
+@Controller('user')
 export class UserController {
     constructor(private readonly uerService: UserService) { }
 
     // Content-Type application/x-www-form-urlencoded  application/json
     @Post("register")
-    async register(@Body() body, @Response() res) {
-        const { name, pwd } = body;
-        const data = await this.uerService.register(name, pwd);
-        console.log(typeof data);
+    async register(@Body() body, @Response() res, @Headers() headers) {
+        console.log(body, headers);
+        const { name, pwd, phone, age } = body;
+        const data = await this.uerService.register(name, pwd, phone, age);
         return res.json(data);
 
     }
@@ -28,9 +28,9 @@ export class UserController {
         const data = await this.uerService.login(name, pwd);
 
         if (data) {
-            return res.json({ code: 200, success: true, msg: "登录成功" });
+            return res.json({ code: 200, success: true, message: "登录成功" });
         } else {
-            return res.json({ code: 200, success: false, msg: "用户名或者密码错误" });
+            return res.json({ code: 200, success: false, message: "用户名或者密码错误" });
         }
     }
 }

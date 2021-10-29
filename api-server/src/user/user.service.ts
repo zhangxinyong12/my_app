@@ -19,20 +19,17 @@ export class UserService {
         }
     }
 
-    async register(name, pwd) {
+    async register(name, pwd, phone?, age?) {
         const data = await this.userRepository.findOne({ name });
-        console.log('reg data');
-        console.log(data);
         if (data) {
-            return { code: 200, success: false, msg: "用户名重复" };
+            return { code: 200, success: false, message: "用户名重复" };
         } else {
             try {
-                await this.userRepository.save({ name, pwd });
-                return { code: 200, success: true, msg: "注册成功" };
+                await this.userRepository.save({ name, pwd, phone, age });
+                return { code: 200, success: true, message: "注册成功" };
 
             } catch (error) {
-                console.log('-----------------------', error);
-                return { code: 200, success: false, msg: error };
+                return { code: 200, success: false, message: error };
             }
         }
     }

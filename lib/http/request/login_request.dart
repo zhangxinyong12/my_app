@@ -1,6 +1,6 @@
 import 'package:flutter_application_1/http/request/base_request.dart';
 
-class RegistrationRequest extends BaseRequest {
+class LoginRequest extends BaseRequest {
   @override
   HttpMethod httpMethod() {
     return HttpMethod.POST;
@@ -13,6 +13,6 @@ class RegistrationRequest extends BaseRequest {
 
   @override
   String path() {
-    return "/user/register";
+    return "/user/login";
   }
 }
