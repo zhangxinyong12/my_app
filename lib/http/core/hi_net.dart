@@ -27,6 +27,8 @@ class HiNet {
       // 其他异常
       error = e;
       printLog(error);
+              throw HiNetError(500, "未知异常", data: "");
+
     }
 
     var result = response!.data;
