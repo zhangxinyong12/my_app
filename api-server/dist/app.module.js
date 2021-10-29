@@ -25,7 +25,7 @@ const ormconfig = {
     charset: 'utf8mb4',
     multipleStatements: true,
     dropSchema: false,
-    synchronize: true,
+    synchronize: false,
     logging: true,
 };
 let AppModule = class AppModule {

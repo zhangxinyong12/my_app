@@ -18,7 +18,7 @@ const ormconfig: TypeOrmModuleOptions = {
   charset: 'utf8mb4',
   multipleStatements: true,
   dropSchema: false,
-  synchronize: true, // 会自动同步创建数据库修改表结构 慎用
+  synchronize: false, // 会自动同步创建数据库修改表结构 慎用 /** Invalid use of NULL value */
   logging: true,
   // autoLoadEntities: true,
 };
