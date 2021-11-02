@@ -2,7 +2,7 @@
     "files.autoSave": "afterDelay",
     "vetur.completion.autoImport": true,
     "vetur.format.defaultFormatter.ts": "vscode-typescript",
-    "editor.defaultFormatter": "vscode.typescript-language-features",
+    // "editor.defaultFormatter": "vscode.typescript-language-features",
     "vetur.format.defaultFormatter.js": "vscode-typescript",
     "eslint.format.enable": true,
     "[json]": {

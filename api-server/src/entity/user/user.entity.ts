@@ -16,10 +16,10 @@ export class User {
     @Column({ comment: "密码", length: 50 })
     pwd: string;
     // nullable 列非必填
-    @Column({ comment: '手机号', nullable: true, })
-    phone: number;
+    @Column({ comment: '手机号', nullable: true, length: 11 })
+    phone: string;
 
-    @Column({ comment: '年龄', nullable: true, })
+    @Column({ comment: '年龄', nullable: true })
     age: number;
 
     @Column({ type: 'timestamp', default: () => 'current_timestamp' })

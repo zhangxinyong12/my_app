@@ -11,7 +11,7 @@ export class UserController {
     async register(@Body() body, @Response() res, @Headers() headers) {
         console.log(body, headers);
         const { name, pwd, phone, age } = body;
-        const data = await this.uerService.register(name, pwd, phone, age);
+        const data = await this.uerService.register(name, pwd, phone, age * 1);
         return res.json(data);
 
     }

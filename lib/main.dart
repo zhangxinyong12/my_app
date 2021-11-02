@@ -5,6 +5,9 @@ import 'package:flutter_application_1/http/core/hi_net.dart';
 import 'package:flutter_application_1/http/dao/login_dao.dart';
 import 'package:flutter_application_1/http/request/test_request.dart';
 
+import 'package:flutter_application_1/page/registration_page.dart';
+import 'package:flutter_application_1/util/color.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -38,30 +41,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "DEMO",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("demo'"),
-        ),
-        body: Container(
-          child: Row(
-            children: [
-              TextButton(onPressed: () {}, child: Text(n.toString())),
-              InkWell(
-                child: Text("测试"),
-                onTap: () {
-                  setState(() {
-                    n++;
-                    HiCache.getInstance().setInt("n", n);
-                  });
-                  // getData();
-                  // testCach();
-                  testDio();
-                },
-              )
-            ],
-          ),
-        ),
+      theme: ThemeData(
+        primarySwatch: white,
       ),
+      home: RegistrationPage(onJumpToLogin: () {}),
     );
   }
 

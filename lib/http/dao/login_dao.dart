@@ -11,7 +11,7 @@ class LoginDao {
     return _send(name, pwd);
   }
 
-  static register(String name, String pwd, int phone, int age) {
+  static register(String name, String pwd, String phone, String age) {
     return _send(name, pwd, phone: phone, age: age);
   }
 
@@ -30,7 +30,9 @@ class LoginDao {
     }
 
     var result = await HiNet.getInstance().fire(request);
-    if (result["code"] == 200 && result["data"]["uuid"]!=null) {
+    if (result["code"] == 200 &&
+        result["data"] != null &&
+        result["data"]["uuid"] != null) {
       HiCache.getInstance().setString(BOARDING_PASS, result["data"]["uuid"]);
     }
     return result;
