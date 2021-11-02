@@ -134,12 +134,49 @@ class _RegistrationPageState extends State<RegistrationPage> {
       var result = await LoginDao.register(name, pwd, phone, age);
 
       if (result["success"]) {
-        print("注册完成---");
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("成功"),
+              content: Text("注册成功"),
+            );
+          },
+        );
 
         if (widget.onJumpToLogin != null) {
           widget.onJumpToLogin();
         }
       } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              contentTextStyle: TextStyle(
+                color: Colors.red,
+              ),
+              // title: Text("失败"),
+              content: Text(
+                "注册失败，用户名重复",
+                textAlign: TextAlign.center,
+              ),
+              actions: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('取消'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('确定'),
+                ),
+              ],
+            );
+          },
+        );
         print("注册失败---用户重复");
       }
     } on NeedAuth catch (e) {
@@ -150,9 +187,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
     String tips;
     if (password != rePassword) {
       tips = "两次密码不一样";
+      print(tips);
       return;
     } else if (phone?.length != 11) {
       tips = "请输入11位手机号";
+      print(tips);
       return;
     }
     send(userName, password, phone, age);

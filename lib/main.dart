@@ -4,6 +4,7 @@ import 'package:flutter_application_1/http/core/hi_error.dart';
 import 'package:flutter_application_1/http/core/hi_net.dart';
 import 'package:flutter_application_1/http/dao/login_dao.dart';
 import 'package:flutter_application_1/http/request/test_request.dart';
+import 'package:flutter_application_1/page/login_page.dart';
 
 import 'package:flutter_application_1/page/registration_page.dart';
 import 'package:flutter_application_1/util/color.dart';
@@ -44,7 +45,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: white,
       ),
-      home: RegistrationPage(onJumpToLogin: () {}),
+      home: LoginPage(onJumpToLogin: () {}),
     );
   }
 
